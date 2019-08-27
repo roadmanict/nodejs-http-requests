@@ -1,5 +1,5 @@
 import {HTTPRequestOptions} from '../HTTPRequest';
-import {CustomError} from '@roadmanict/nodejs-common/dist/CustomError';
+import {CustomError} from '@roadmanict/nodejs-common/dist/src/CustomError';
 
 export class HTTPRequestError extends CustomError {
   private readonly request: HTTPRequestOptions;

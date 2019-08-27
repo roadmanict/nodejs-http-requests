@@ -13,7 +13,7 @@
     "watch": "nodemon --exec \"npm run tslint && npm run ts:incremental && npm run test\"",
     "test": "nyc jasmine",
     "build": "npm audit && npm run tslint && npm run ts && npm run test",
-    "postinstall": "tsc -p tsconfig-postinstall.json",
+    "prepare": "tsc --declaration || exit 0",
     "prets:watch": "npm run clean",
     "prewatch": "npm run clean",
     "prebuild": "npm run clean"
@@ -22,7 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^15.1.1",
-    "@roadmanict/nodejs-code-style": "git+https://github.com/roadmanict/nodejs-code-styes.git",
+    "@roadmanict/nodejs-code-style": "git+https://github.com/roadmanict/nodejs-code-styles.git",
     "@roadmanict/nodejs-common": "git+https://github.com/roadmanict/nodejs-common.git",
     "@types/hapi__joi": "^15.0.3",
     "@types/request": "^2.48.2",

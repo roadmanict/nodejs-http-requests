@@ -1,5 +1,5 @@
 import {HTTPRequestOptions} from '../HTTPRequest';
-import {CustomError} from '@roadmanict/nodejs-common/dist/CustomError';
+import {CustomError} from '@roadmanict/nodejs-common/dist/src/CustomError';
 import {HTTPResponse} from '../HTTPResponse';
 
 export class HTTPRequestInvalidStatusCodeError extends CustomError {
