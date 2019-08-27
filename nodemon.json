@@ -1,0 +1,8 @@
+{
+    "verbose": false,
+    "restartable": "rs",
+    "ext": "ts,json",
+    "ignore": [
+        "dist"
+    ]
+}

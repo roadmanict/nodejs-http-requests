@@ -1,0 +1,10 @@
+{
+  "extends": "@roadmanict/nodejs-code-style/tsconfig-base.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": [
+    "src",
+    "spec"
+  ]
+}
