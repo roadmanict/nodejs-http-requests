@@ -5,18 +5,14 @@
   "repository": "https://github.com/roadmanict/nodejs-common",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf ./dist ./coverage ./.nyc_output",
-    "tslint": "tslint 'spec/**/*.ts' 'src/**/*.ts'",
-    "ts": "tsc",
-    "ts:incremental": "tsc --incremental",
-    "ts:watch": "tsc -w",
-    "watch": "nodemon --exec \"npm run tslint && npm run ts:incremental && npm run test\"",
-    "test": "nyc jasmine",
-    "build": "npm audit && npm run tslint && npm run ts && npm run test",
-    "prepare": "tsc --declaration || exit 0",
-    "prets:watch": "npm run clean",
-    "prewatch": "npm run clean",
-    "prebuild": "npm run clean"
+    "clean": "make clean",
+    "tslint": "make tslint",
+    "ts": "make ts",
+    "ts:incremental": "make ts-incremental",
+    "watch": "make watch",
+    "test": "make test",
+    "build": "make build",
+    "prepare": "make prepare"
   },
   "author": "Geert Weggemans",
   "license": "MIT",
@@ -39,6 +35,7 @@
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
     "rimraf": "^3.0.0",
+    "source-map-support": "^0.5.13",
     "tslint": "^5.19.0",
     "tslint-microsoft-contrib": "^6.2.0"
   }

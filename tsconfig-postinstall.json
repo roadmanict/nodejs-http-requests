@@ -1,9 +1,0 @@
-{
-  "extends": "@roadmanict/nodejs-code-style/tsconfig-postinstall.json",
-  "compilerOptions": {
-    "outDir": "dist"
-  },
-  "include": [
-    "src"
-  ]
-}
