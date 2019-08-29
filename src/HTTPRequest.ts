@@ -7,7 +7,7 @@ export interface HTTPRequest<T> {
   readonly options: HTTPRequestOptions;
 
   /**
-   * @throws {HTTPRequestError, HTTPRequestInvalidStatusCodeError}
+   * @throws {HTTPRequestError}
    */
   execute(): Promise<HTTPResponse<T>>;
 }

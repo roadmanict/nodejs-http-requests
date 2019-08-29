@@ -23,7 +23,6 @@ export class HTTPRequestValidator<T> extends HTTPRequestDecorator<T> {
 
   /**
    * @throws {HTTPRequestError}
-   * @throws {HTTPRequestInvalidStatusCodeError}
    * @throws {HTTPRequestValidationError}
    */
   public async execute(): Promise<HTTPResponse<T>> {

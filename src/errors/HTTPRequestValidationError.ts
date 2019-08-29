@@ -3,12 +3,14 @@ import {HTTPResponse} from '../HTTPResponse';
 import {CustomError} from '@roadmanict/nodejs-common/dist/src/CustomError';
 
 export class HTTPRequestValidationError extends CustomError {
+  public static MESSAGE: string = 'HTTP Response body invalid';
+
   private readonly request: HTTPRequestOptions;
   private readonly response: HTTPResponse<any>;
   private readonly error: any;
 
   public constructor(request: HTTPRequestOptions, response: HTTPResponse<any>, error: any) {
-    super('Error while making HTTP Request');
+    super(HTTPRequestValidationError.MESSAGE);
 
     this.request  = request;
     this.response = response;

@@ -2,6 +2,7 @@ import nock from 'nock';
 import {HTTPRequestOptions} from '../src/HTTPRequest';
 import {RequestJSWrapper} from '../src/RequestJSWrapper';
 import {HTTPResponse} from '../src/HTTPResponse';
+import {HTTPRequestError} from '../src/errors/HTTPRequestError';
 
 describe('A RequestJSWrapper', () => {
   const domain  = 'http://mobileapi.unit-test-jumbo.com';
@@ -93,8 +94,10 @@ describe('A RequestJSWrapper', () => {
         timeout: 1,
       }).execute();
     } catch (error) {
-      expect(error.name).toEqual('RequestError');
-      expect(error.message).toEqual('Error: ESOCKETTIMEDOUT');
+      expect(error.name).toEqual('HTTPRequestError');
+      expect(error.message).toEqual(HTTPRequestError.MESSAGE);
+      expect(error.error.name).toEqual('RequestError');
+      expect(error.error.message).toEqual('Error: ESOCKETTIMEDOUT');
 
       return;
     }
@@ -108,8 +111,10 @@ describe('A RequestJSWrapper', () => {
     try {
       await new RequestJSWrapper(options).execute();
     } catch (error) {
-      expect(error.name).toEqual('RequestError');
-      expect(error.message).toEqual('Error: ETIMEDOUT');
+      expect(error.name).toEqual('HTTPRequestError');
+      expect(error.message).toEqual(HTTPRequestError.MESSAGE);
+      expect(error.error.name).toEqual('RequestError');
+      expect(error.error.message).toEqual('Error: ETIMEDOUT');
 
       return;
     }
@@ -123,8 +128,10 @@ describe('A RequestJSWrapper', () => {
     try {
       await new RequestJSWrapper(options).execute();
     } catch (error) {
-      expect(error.name).toEqual('RequestError');
-      expect(error.message).toEqual('Error: CUSTOM');
+      expect(error.name).toEqual('HTTPRequestError');
+      expect(error.message).toEqual(HTTPRequestError.MESSAGE);
+      expect(error.error.name).toEqual('RequestError');
+      expect(error.error.message).toEqual('Error: CUSTOM');
 
       return;
     }
@@ -139,8 +146,10 @@ describe('A RequestJSWrapper', () => {
         url: 'http://localhost:12345',
       }).execute();
     } catch (error) {
-      expect(error.name).toEqual('RequestError');
-      expect(error.message).toEqual('Error: connect ECONNREFUSED 127.0.0.1:12345');
+      expect(error.name).toEqual('HTTPRequestError');
+      expect(error.message).toEqual(HTTPRequestError.MESSAGE);
+      expect(error.error.name).toEqual('RequestError');
+      expect(error.error.message).toEqual('Error: connect ECONNREFUSED 127.0.0.1:12345');
 
       return;
     }

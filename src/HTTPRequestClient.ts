@@ -31,7 +31,6 @@ export class HTTPRequestClient {
 
   /**
    * @throws {HTTPRequestError}
-   * @throws {HTTPRequestInvalidStatusCodeError}
    * @throws {HTTPRequestValidationError}
    */
   public request<T = any>({

@@ -1,7 +1,6 @@
 import request from 'request-promise-native';
 import {HTTPRequest, HTTPRequestOptions} from './HTTPRequest';
 import {HTTPRequestError} from './errors/HTTPRequestError';
-import {HTTPRequestInvalidStatusCodeError} from './errors/HTTPRequestInvalidStatusCodeError';
 import {HTTPResponse} from './HTTPResponse';
 
 const baseRequest = request.defaults({
@@ -19,7 +18,7 @@ export class RequestJSWrapper<T> implements HTTPRequest<T> {
   }
 
   /**
-   * @throws {HTTPRequestError, HTTPRequestInvalidStatusCodeError}
+   * @throws {HTTPRequestError}
    */
   public async execute(): Promise<HTTPResponse<T>> {
     const response = await baseRequest({
@@ -31,10 +30,6 @@ export class RequestJSWrapper<T> implements HTTPRequest<T> {
       .catch((error) => {
         throw new HTTPRequestError(this.options, error);
       });
-
-    if (response.statuscode >= 400) {
-      throw new HTTPRequestInvalidStatusCodeError(this.options, response);
-    }
 
     return {
       statusCode: response.statusCode,
