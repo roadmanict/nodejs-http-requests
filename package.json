@@ -12,20 +12,20 @@
     "watch": "make watch",
     "test": "make test",
     "build": "make build",
-    "prepare": "make prepare"
+    "prepare": "make prepare || exit 0"
   },
   "author": "Geert Weggemans",
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^15.1.1",
-    "@roadmanict/nodejs-code-style": "git+https://github.com/roadmanict/nodejs-code-styles.git",
+    "@roadmanict/nodejs-base": "git+https://github.com/roadmanict/nodejs-base.git",
     "@roadmanict/nodejs-common": "git+https://github.com/roadmanict/nodejs-common.git",
     "@types/hapi__joi": "^15.0.3",
     "@types/request": "^2.48.2",
     "@types/request-promise-native": "^1.0.16",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
-    "typescript": "^3.5.3"
+    "typescript": "^3.6.2"
   },
   "devDependencies": {
     "@types/jasmine": "^3.4.0",

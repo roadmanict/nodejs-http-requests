@@ -1,5 +1,5 @@
 {
-  "extends": "@roadmanict/nodejs-code-style/tsconfig-base.json",
+  "extends": "@roadmanict/nodejs-base/tsconfig-base.json",
   "compilerOptions": {
     "outDir": "dist"
   },

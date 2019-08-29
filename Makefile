@@ -1,1 +1,1 @@
-include node_modules/@roadmanict/nodejs-code-style/Makefile
+include node_modules/@roadmanict/nodejs-base/Makefile
