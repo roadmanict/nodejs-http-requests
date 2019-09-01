@@ -1,0 +1,3 @@
+{
+  "extends": "@roadmanict/nodejs-base/tslint.json"
+}
