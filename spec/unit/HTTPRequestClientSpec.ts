@@ -1,7 +1,7 @@
-import {HTTPRequestClient} from '../src/HTTPRequestClient';
-import {HTTPResponse} from '../src/HTTPResponse';
+import {HTTPRequestClient} from '../../src/HTTPRequestClient';
+import {HTTPResponse} from '../../src/HTTPResponse';
 import joi from '@hapi/joi';
-import {createRequestMocks, createHTTPRequestValidationMocks} from './mocks';
+import {createRequestMocks, createHTTPRequestValidationMocks} from '../mocks';
 
 describe('A HTTPRequestClient', () => {
   const httpRequestMocks           = createRequestMocks();

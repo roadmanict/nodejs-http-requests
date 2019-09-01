@@ -1,8 +1,8 @@
 import nock from 'nock';
-import {HTTPRequestOptions} from '../src/HTTPRequest';
-import {RequestJSWrapper} from '../src/RequestJSWrapper';
-import {HTTPResponse} from '../src/HTTPResponse';
-import {HTTPRequestError} from '../src/errors/HTTPRequestError';
+import {HTTPRequestOptions} from '../../src/HTTPRequest';
+import {RequestJSWrapper} from '../../src/RequestJSWrapper';
+import {HTTPResponse} from '../../src/HTTPResponse';
+import {HTTPRequestError} from '../../src/errors/HTTPRequestError';
 
 describe('A RequestJSWrapper', () => {
   const domain  = 'http://mobileapi.unit-test-jumbo.com';

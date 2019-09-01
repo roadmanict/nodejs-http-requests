@@ -1,7 +1,7 @@
-import {HTTPRequestDecorator} from '../src/HTTPRequestDecorator';
-import {HTTPRequest} from '../src/HTTPRequest';
-import {createRequestMocks} from './mocks';
-import {HTTPResponse} from '../src/HTTPResponse';
+import {HTTPRequestDecorator} from '../../src/HTTPRequestDecorator';
+import {HTTPRequest} from '../../src/HTTPRequest';
+import {createRequestMocks} from '../mocks';
+import {HTTPResponse} from '../../src/HTTPResponse';
 
 describe('A HTTPRequestDecorator', () => {
   class DecoratedHTTPRequest extends HTTPRequestDecorator<any> {

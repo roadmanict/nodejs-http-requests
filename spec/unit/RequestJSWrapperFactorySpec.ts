@@ -1,5 +1,5 @@
-import {RequestJSWrapperFactory} from '../src/RequestJSWrapperFactory';
-import {RequestJSWrapper} from '../src/RequestJSWrapper';
+import {RequestJSWrapperFactory} from '../../src/RequestJSWrapperFactory';
+import {RequestJSWrapper} from '../../src/RequestJSWrapper';
 
 describe('A RequestJSWrapperFactory', () => {
   it('Should be able to create a RequestJSWrapper', () => {

@@ -1,8 +1,8 @@
 import joi from '@hapi/joi';
-import {HTTPRequestValidator} from '../src/HTTPRequestValidator';
-import {createRequestMocks} from './mocks';
-import {HTTPResponse} from '../src/HTTPResponse';
-import {HTTPRequestValidationError} from '../src/errors/HTTPRequestValidationError';
+import {HTTPRequestValidator} from '../../src/HTTPRequestValidator';
+import {createRequestMocks} from '../mocks';
+import {HTTPResponse} from '../../src/HTTPResponse';
+import {HTTPRequestValidationError} from '../../src/errors/HTTPRequestValidationError';
 
 describe('A HTTPRequestValidator', () => {
   const requestMocks = createRequestMocks();
