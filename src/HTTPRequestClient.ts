@@ -7,6 +7,7 @@ import {HTTPRequestValidatorFactory} from './HTTPRequestValidatorFactory';
 
 interface HTTPRequestClientParameters {
   httpRequestFactory?: HTTPRequestFactory;
+  httpRequestValidationFactory?: HTTPRequestValidatorFactory;
   decorator?: <T>(request: HTTPRequest<T>) => HTTPRequest<T>;
 }
 
@@ -22,10 +23,11 @@ export class HTTPRequestClient {
 
   public constructor({
                        httpRequestFactory = new RequestJSWrapperFactory(),
+                       httpRequestValidationFactory = new HTTPRequestValidatorFactory(),
                        decorator = (request) => request,
                      }: HTTPRequestClientParameters) {
     this.httpRequestFactory           = httpRequestFactory;
-    this.httpRequestValidationFactory = new HTTPRequestValidatorFactory();
+    this.httpRequestValidationFactory = httpRequestValidationFactory;
     this.decorator                    = decorator;
   }
 

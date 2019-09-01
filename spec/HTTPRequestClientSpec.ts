@@ -1,33 +1,15 @@
 import {HTTPRequestClient} from '../src/HTTPRequestClient';
 import {HTTPResponse} from '../src/HTTPResponse';
-import {HTTPRequest} from '../src/HTTPRequest';
-import {HTTPRequestFactory} from '../src/HTTPRequestFactory';
 import joi from '@hapi/joi';
-
-const createHTTPMocks = <T = any>() => {
-  const responseMock = {
-    statusCode: 200,
-    body:       {},
-    headers:    {},
-  } as HTTPResponse<T>;
-  const httpRequest  = {
-    execute: () => Promise.resolve(responseMock),
-  } as HTTPRequest<T>;
-
-  return {
-    factory:  {
-                create: () => httpRequest,
-              } as HTTPRequestFactory,
-    request:  httpRequest,
-    response: responseMock,
-  };
-};
+import {createHTTPMocks, createHTTPRequestValidationMocks} from './mocks';
 
 describe('A HTTPRequestClient', () => {
-  const httpRequestMocks = createHTTPMocks();
+  const httpRequestMocks           = createHTTPMocks();
+  const httpRequestValidationMocks = createHTTPRequestValidationMocks();
 
   const httpRequestClient = new HTTPRequestClient({
-    httpRequestFactory: httpRequestMocks.factory,
+    httpRequestFactory:           httpRequestMocks.factory,
+    httpRequestValidationFactory: httpRequestValidationMocks.factory,
   });
 
   describe('Doing a request', () => {
@@ -42,24 +24,31 @@ describe('A HTTPRequestClient', () => {
     });
 
     it('Returns a HTTPResponse', () => {
-      expect(response).toEqual(httpRequestMocks.response);
+      expect(response).toBe(httpRequestMocks.response);
     });
   });
 
   describe('Doing a request with a validation schema', () => {
     let response: HTTPResponse;
+    const joiMock = {} as joi.Schema;
 
     beforeEach(async () => {
+      spyOn(httpRequestValidationMocks.factory, 'create').and.callThrough();
+
       response = await httpRequestClient.request({
-        options: {
+        options:   {
           url: '/url',
         },
-        joiSchema: {} as joi.Schema,
+        joiSchema: joiMock,
       });
     });
 
     it('Returns a HTTPResponse', () => {
-      expect(response).toEqual(httpRequestMocks.response);
+      expect(response).toBe(httpRequestValidationMocks.response);
+    });
+
+    it('Calls HTTPRequestValidationFactory create method', () => {
+      expect(httpRequestValidationMocks.factory.create).toHaveBeenCalledWith(httpRequestMocks.request, joiMock);
     });
   });
 });
