@@ -19,9 +19,9 @@ export class HTTPRequestValidationError extends CustomError {
 
   protected extendToJSON(): object {
     return {
-      request:         this.request,
-      response:        this.response,
-      validationError: {
+      request:       this.request,
+      response:      this.response,
+      originalError: {
         name:    this.error.name,
         message: this.error.message,
         stack:   this.error.stack,
