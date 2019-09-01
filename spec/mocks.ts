@@ -11,6 +11,7 @@ export const createHTTPMocks = <T = any>() => {
     headers:    {},
   } as HTTPResponse<T>;
   const httpRequest  = {
+    options: {},
     execute: () => Promise.resolve(responseMock),
   } as HTTPRequest<T>;
 
