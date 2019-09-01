@@ -1,0 +1,5 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="test" type="NodeJSConfigurationType" node-parameters="-r source-map-support/register" path-to-js-file="node_modules/.bin/jasmine" working-dir="$PROJECT_DIR$">
+    <method v="2" />
+  </configuration>
+</component>
