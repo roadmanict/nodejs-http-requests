@@ -1,10 +1,10 @@
 import {HTTPRequestClient} from '../src/HTTPRequestClient';
 import {HTTPResponse} from '../src/HTTPResponse';
 import joi from '@hapi/joi';
-import {createHTTPMocks, createHTTPRequestValidationMocks} from './mocks';
+import {createRequestMocks, createHTTPRequestValidationMocks} from './mocks';
 
 describe('A HTTPRequestClient', () => {
-  const httpRequestMocks           = createHTTPMocks();
+  const httpRequestMocks           = createRequestMocks();
   const httpRequestValidationMocks = createHTTPRequestValidationMocks();
 
   const httpRequestClient = new HTTPRequestClient({

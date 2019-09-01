@@ -1,6 +1,6 @@
 import {HTTPRequestDecorator} from '../src/HTTPRequestDecorator';
 import {HTTPRequest} from '../src/HTTPRequest';
-import {createHTTPMocks} from './mocks';
+import {createRequestMocks} from './mocks';
 import {HTTPResponse} from '../src/HTTPResponse';
 
 describe('A HTTPRequestDecorator', () => {
@@ -10,7 +10,7 @@ describe('A HTTPRequestDecorator', () => {
     }
   }
 
-  const requestMocks = createHTTPMocks();
+  const requestMocks = createRequestMocks();
 
   const decoratedHTTPRequest = new DecoratedHTTPRequest(requestMocks.request);
 

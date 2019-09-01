@@ -33,8 +33,9 @@ export class HTTPRequestValidator<T> extends HTTPRequestDecorator<T> {
       throw new HTTPRequestValidationError(this.request.options, response, error);
     }
 
-    response.body = value;
-
-    return response;
+    return {
+      ...response,
+      body: value,
+    };
   }
 }

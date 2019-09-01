@@ -4,7 +4,7 @@ import {HTTPRequestFactory} from '../src/HTTPRequestFactory';
 import {HTTPRequestValidatorFactory} from '../src/HTTPRequestValidatorFactory';
 import {HTTPRequestValidator} from '../src/HTTPRequestValidator';
 
-export const createHTTPMocks = <T = any>() => {
+export const createRequestMocks = <T = any>() => {
   const responseMock = {
     statusCode: 200,
     body:       {},
