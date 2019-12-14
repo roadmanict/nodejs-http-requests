@@ -17,7 +17,7 @@
   "author": "Geert Weggemans",
   "license": "MIT",
   "dependencies": {
-    "@hapi/joi": "15.1.1",
+    "@hapi/joi": "16.1.8",
     "@roadmanict/nodejs-common": "github:roadmanict/nodejs-common",
     "@types/hapi__joi": "15.0.3",
     "@types/request": "2.48.2",
